@@ -14,4 +14,12 @@
 
 var commonCharacters = function(string1, string2) {
   // TODO: Your code here!
+  var arr = []
+  for (var i = 0; i < string1.length; i++) {
+  	c = string1[i]
+  	if (string2.includes(c)) {
+  		arr.push(c)
+  	}
+  }
+  return arr.join('')
 };
