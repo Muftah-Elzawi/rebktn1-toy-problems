@@ -17,3 +17,7 @@
 //
 // Example:
 // removNb(26) should return [ {15, 21}, {21, 15} ]
+
+function removNb (argument) {
+	
+}
