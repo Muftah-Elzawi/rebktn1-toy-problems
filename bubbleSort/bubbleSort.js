@@ -35,4 +35,44 @@
 
 var bubbleSort = function(array) {
   // Your code here.
+
+var max = 0;
+var min = array[0]
+
+for (var i = 0; i < array.length; i++) {
+		if (max < array[i])	{
+			max = array[i]
+		}if (min > array[i]) {
+			min = array[i]
+		}
+}
+var i = 0
+while (max !== array[0] && min !== array[array.length-1]) {
+	 array[i] = array [i+1]
+	 array[i+1] = array[i]
+
+	 i++
+	 if (i === array.length-2) {
+	 	i = 0
+	 }
+}
+
+
+return array
 };
+
+
+
+function sortThisShit(array,max,min,n) {
+	if (max === array[0] && min === array[array.length-1]) {
+	return array
+}else {
+
+		array.splice(n,n+1,array[n+1])
+		array.splice(n+1,n+1,array[0])
+		n+=1
+	return sortThisShit(array,max,min,n)
+}
+
+}
+sortedOne = sortThisShit(array,max,min,0)

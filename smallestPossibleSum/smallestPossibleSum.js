@@ -32,13 +32,30 @@
 function smallestPossibleSum (array) {
 
 	for (var i = 0; i < array.length; i++) {
-		for (var j = 0; j < array.length; j++) {
-			if (array[i] > array[j]) {
-				array[i] = array[i] - array[j]
+		// for (var j = 1; j < array.length; j++) {
+			if (array[i] > array[i+1]) {
+				array[i] = array[i] - array[i+1]
 			}	
-		}
+			if (array[i] > array[i-1]) {
+				array[i] = array[i] - array[i-1]
+			}
+		// }
 		
 	}
+	// var i = 0;
+	// while (array[i] > array[i+1]){
+
+	// 	array[i] = array[i] - array[i++]
+	// 	i++
+
+	// 	if (i === array.length-2) {
+	// 		i = 0;
+	// 	}
+
+	// }
+
+
+
 
 	return array.reduce(function (elem, acc) {
 		return acc += elem
