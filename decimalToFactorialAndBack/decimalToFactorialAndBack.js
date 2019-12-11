@@ -21,3 +21,66 @@
 // The second one will decode a string with a factorial representation and produce the decimal representation : factString2Dec(str).
 
 // Given numbers will be positive.
+class Stack {
+	constructor(){
+		this._storage = {}
+		this._size = 0
+	}
+	push(nb){
+		this._storage[this._size] = nb
+		this._size ++
+	}
+	pop(){
+		if (this._size === 0) {
+			return;
+		}
+		var pupedValue = this._storage[this._size];
+		delete this._storage[this._size];
+		return pupedValue;
+	}
+	peek (){
+		return this._storage[this._size];
+	}
+}
+dicemToBin = (nb , stack)=> {
+	stack = stack || new Stack()
+	// console.log(Math.floor(nb / 2 ));
+	if (nb === 1) {
+		stack.push(1);
+	}
+	if (Math.floor(nb / 2 ) === 0) {
+		return;
+	}
+	stack.push(nb % 2);
+	// console.log(nb, nb % 2)
+	dicemToBin(Math.floor(nb / 2 ), stack);
+	return stack;
+}
+facToDicem = (nb , stack, redix)=> {
+	redix = redix || 1
+	stack = stack || new Stack()
+	// console.log(Math.floor(nb / redix ));
+	// if (nb === 1) {
+	// 	stack.push(1);
+	// }
+	if (Math.floor(nb / redix ) === 0) {
+		stack.push(nb);
+		return;
+	}
+	stack.push(nb % redix);
+	console.log(nb, redix)
+	facToDicem(Math.floor(nb / redix ), stack, ++redix);
+	return stack;
+}
+dicToFac = (string)=> {
+	let  arr = []
+for (let i = 0; i < string.length; i++) {
+	arr.push(parseInt(string[i]) * fac(i))
+}
+}
+fac = (nb)=> {
+	if (nb === 0) {
+		return 1
+	}
+	return nb * fac(--nb)
+}

@@ -36,6 +36,12 @@ var Tree = function(value) {
 };
 
 Tree.prototype.DFSelect = function(filter) {
+  var thisValue = this
+  newTree = arguments[1] || new Tree(filter(thisValue.value))
+  for (var i = 0; i < thisValue.children.length; i++) {
+   newTree.addChild(filter(thisValue.children[i]) ) 
+   thisValue.children[i].DFSelect(filter,newTree.children[i])
+  }
 };
 
 
@@ -93,3 +99,24 @@ Tree.prototype.removeChild = function(child) {
     throw new Error('That node is not an immediate child of this tree');
   }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Tree.prototype.map = function(mapping, newTree) {
+//   var currentNode = this;
+//   var newTree = newTree || new Tree(mapping(currentNode.value));
+//     for (var i = 0; i < this.children.length; i++) {
+//       newTree.addChild(mapping(this.children[i]));
+//       this.children[i].map(mapping, newTree.children[i])
+//     }
+// }

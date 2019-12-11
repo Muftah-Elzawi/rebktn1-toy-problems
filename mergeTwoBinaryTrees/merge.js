@@ -36,4 +36,27 @@ Note: The merging process must start from the root nodes of both trees.
  * @param {TreeNode} t2
  * @return {TreeNode}
  */
-var mergeTrees = function(t1, t2) {};
+var mergeTrees = function(t1, t2) {
+
+newTree = arguments[2] || new TreeNode(t1.val + t2.val)
+
+if (t1.right && t2.right) {
+	mergeTrees(t1.right,t2.right,newTree.right)
+}if (!t1.right) {
+	mergeTrees(0,t2.right,newTree.right)
+}if (!t2.right) {
+	mergeTrees(t1.right,0,newTree.right)
+}if (t1.left && t2.left) {
+	mergeTrees(t1.left,t2.left,newTree.left)
+}if (!t1.left) {
+	mergeTrees(0,t2.left,newTree.left)
+}if (!t2.left) {
+	mergeTrees(t1.right,0,newTree.right)
+}
+
+
+};
+
+function function_name(argument) {
+	// body...
+}

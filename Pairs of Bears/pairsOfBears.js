@@ -20,3 +20,22 @@ x will always be a positive integer, and s will never be empty
 
 
 */
+function pairsOfBears(number,string) {
+	// body...
+	var str = ''
+	var arr = [];
+	for (var i = 0; i < string.length-2; i++) {
+
+		if (string[i] === 'B' && string[i+1] === '8' || string[i] === '8' && string[i+1] === 'B') {
+		str +=	string.substring(i,i+2)
+console.log(string[i+1],i)
+		}
+	}
+	if (number === str.length) {
+		arr.push(true)
+	}else {
+		arr.push(false)
+	}
+
+	return arr.push(str)
+}
