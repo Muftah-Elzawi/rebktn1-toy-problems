@@ -13,6 +13,9 @@ EXAMPLES:
 
 var multiply = function(x, y) {
   // your code here...
+  if (y < 0) {
+    y = Math.abs(y);
+  }
   var result = 0;
   for (let index = 0; index < y; index++) {
     result += x;
@@ -22,6 +25,12 @@ var multiply = function(x, y) {
 
 var divide = function(x, y) {
   // your code here...
+  if (y === 0) {
+    return " y should not be Zero";
+  }
+  if (y < 0) {
+    y = Math.abs(y);
+  }
   var result = 0;
   while (0 < x) {
     x = x - y;
@@ -33,6 +42,12 @@ var divide = function(x, y) {
 
 var modulo = function(x, y) {
   // your code here...
+  if (y === 0) {
+    return " y should not be Zero";
+  }
+  if (y < 0) {
+    y = Math.abs(y);
+  }
   var result = 0;
   while (y < x) {
     x = x - y;
